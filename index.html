@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FormLab — Website design library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("formlab_theme") || "dark";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scene-bg" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <canvas id="particles"></canvas>
+  </div>
+
+  <header class="topbar">
+    <a class="logo" href="#/">FormLab</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" type="button">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="mainNav">
+      <a href="#/" data-nav="home">Home</a>
+      <div class="nav-drop">
+        <a href="#/types" data-nav="types">Designs</a>
+        <div class="nav-drop-menu">
+          <a href="#/types">All types</a>
+          <a href="#/designs?mood=formal">Formal</a>
+          <a href="#/designs?mood=informal">Informal</a>
+          <a href="#/designs?mood=branding">Branding</a>
+          <a href="#/designs?motion=2d">2D</a>
+          <a href="#/designs?motion=3d">3D</a>
+          <a href="#/designs?motion=animated">Animated</a>
+          <a href="#/designs?motion=unique">Unique</a>
+          <a href="#/designs?level=simple">Simple (free code)</a>
+          <a href="#/designs">All designs</a>
+        </div>
+      </div>
+      <a href="#/methods" data-nav="methods">Methods</a>
+      <div class="mode-switch" role="group" aria-label="Color mode">
+        <button type="button" id="modeLight" data-theme-set="light">Light</button>
+        <button type="button" id="modeDark" data-theme-set="dark">Dark</button>
+      </div>
+      <span class="nav-auth" id="navAuth"></span>
+    </nav>
+  </header>
+
+  <main id="app" class="app"></main>
+
+  <footer class="site-footer">
+    <p>FormLab showcases website layouts by type, mood, and motion. Simple designs include free source. Other levels need a login.</p>
+  </footer>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="js/designs-data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
